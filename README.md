@@ -4,19 +4,23 @@ CSV River Plugin for ElasticSearch
 The CSV River plugin allows index CSV files in folder.
 
 In order to install the plugin, simply run: 
-```bin/plugin -install river-csv -url https://github.com/AgileWorksOrg/elasticsearch-river-csv/releases/download/2.1.0/elasticsearch-river-csv-2.1.0.zip```.
+```bin/plugin -install river-csv -url https://github.com/AgileWorksOrg/elasticsearch-river-csv/releases/download/2.2.0/elasticsearch-river-csv-2.2.0.zip```.
 
 If it doesn't work, clone git repository and build plugin manually.
 
 
     -------------------------------------
-    | CSV Plugin | ElasticSearch        |
+    | CSV Plugin     | ElasticSearch    |
     -------------------------------------
-    | master         | 1.1.2 -> master |
+    | master         | 1.5.x -> master  |
     -------------------------------------
-    | 2.0.2          | 1.0.x -> 1.2.x  |
+    | 2.2.0          | 1.5.x -> master  |
     -------------------------------------
-    | 2.0.1          | 1.0.x -> 1.2.x  |
+    | 2.1.2          | 1.4.x -> master  |
+    -------------------------------------
+    | 2.0.2          | 1.0.x -> 1.2.x   |
+    -------------------------------------
+    | 2.0.1          | 1.0.x -> 1.2.x   |
     -------------------------------------
     | 2.0.0          | 1.0.0            |
     -------------------------------------
@@ -29,7 +33,20 @@ The CSV river import data from CSV files and index it.
 
 ##Changelog
 
-###2.1.1-SNAPSHOT
+###2.2.1-SNAPSHOT
+
+* no changes yet
+
+###2.2.0
+
+* updated dependencies to latest versions
+
+###2.1.2
+
+* fixed - After import, the file remained open, preventing a rename to .imported.
+* added the ability to run bash, powershell and "Windows script host"
+
+###2.1.1
 
 * added support for custom charset
 * added support for generating an import timestamp in all imported documents
@@ -91,6 +108,7 @@ The CSV river import data from CSV files and index it.
 	        "escape_character" : ";",
 	        "quote_character" : "'",
             "field_id" : "id",
+            "field_id_include" : "false",
             "field_timestamp" : "imported_at",
             "concurrent_requests" : "1",
             "charset" : "UTF-8",
